@@ -81,8 +81,8 @@
 					</p>
 
 					<p>
-						<img src='$companyLogo' style='width: 100%;'>
-						<span id='clock' style='font-size: 1.5em; margin-top: 50px; text-shadow: 5px -1px 0px #000000;'></span>
+						<img src='$companyLogo' style='width: 100%; padding-bottom: 20px;'>
+						<span id='clock' style='font-size: 1.5em; text-shadow: 5px -1px 0px #000000;'></span>
 					</p>
 					
 
