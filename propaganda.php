@@ -79,7 +79,6 @@
 				
 		$(document).ready(function() {
 			getMainContent();
-			var clock = setInterval(function() {runTheClock();}, 1000);
 		});
 		
 		//reload the news ticker every 15 minutes (900000 miliseconds)
@@ -100,14 +99,7 @@
 		//Here's the initial call to the infinite loop refresh function for the main content
 		//Just using a default of 10 seconds before the first refresh, just to make sure everything is ready and loaded
 		setTimeout(cycleMainContent, 10000);
-		
-		//setup the clock
-		function runTheClock() 
-		{
-			var d = new Date();
-			document.getElementById('clock').innerHTML = d.toLocaleTimeString();
-		}
-					
+			
 		//Go get the main content from the database
 		function getMainContent()
 		{
