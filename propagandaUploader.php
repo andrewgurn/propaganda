@@ -10,14 +10,15 @@
 		<style>
 			.left
 			{
-				position: absolute;
+				display: inline-block;
 				width: 25%;
 				left: 5%;
+				vertical-align: top;
 			}
 			
 			.right
 			{
-				position: absolute;
+				display: inline-block;
 				width: 65%;
 				right: 5%;
 			}
@@ -88,7 +89,26 @@
 				<img id="previewImage" src="images/preview.jpg">
 			</div>
 		</div>
+		<div>
+			<h1>Here's everything currently active:</h1>
+			<div id="allContent">
+				
+			</div>
+		</div>
 		<script>
+			$(document).ready(function(){
+				$.ajax({
+					url: 'propagandaGetActiveContent.php',
+					type: 'post',
+					contentType: false,
+					processData: false,
+					success: function(response)
+					{
+						$("#allContent").html(response); 	
+					},
+				});
+			});
+			
 			//show the appropriate fields based on the content type
 			$('#contentType').on('change', function(){
 				
@@ -177,6 +197,8 @@
 				});
 				
 			});
+			
+			
 			
 		</script>
 		
