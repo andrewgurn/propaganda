@@ -19,5 +19,6 @@ I'm currently using this for the screens at my job.  Here's what it looks like i
 3. Adjust your webserver to require authentication to use propagandaUploader.php 
 4. Adjust your webserver to allow people to upload files to the propagandaUploads directory (you may need to change some PHP settings and grant write access to propagandaUploads)
 5. Edit propagandaConfig.php to customize the look and feel and get the weather working
+6. Configure your display devices (a Raspberry Pi, for exampe) to load propaganda/propaganda.php in Chrome (I haven't really tested it in other browsers)
 
 I think that ought to be it.
