@@ -4,9 +4,9 @@ propaganda is a not-very-complicated PHP and Javascript web app for informationa
 This is a work in progress.
 
 # requirements
--A web server that runs PHP7
--MariaDB / MySQL
--An OpenWeather API Key (free from openweathermap.org)
+1. A web server that runs PHP7
+2. MariaDB / MySQL
+3. An OpenWeather API Key (free from openweathermap.org)
 
 # installation
 1. Download everything an stick it in your webroot (/var/www/html, c:/inetpub/wwwroot, etc)
