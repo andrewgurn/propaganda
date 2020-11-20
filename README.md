@@ -3,6 +3,11 @@ propaganda is a not-very-complicated PHP and Javascript web app for informationa
 
 This is a work in progress.
 
+# screenshot
+I'm currently using this for the screens at my job.  Here's what it looks like in action:
+
+![screenshot](https://user-images.githubusercontent.com/61878195/99812587-a3a87a80-2b14-11eb-852b-6098c1688f03.jpg)
+
 # requirements
 1. A web server that runs PHP7
 2. MariaDB / MySQL
