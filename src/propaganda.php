@@ -10,7 +10,7 @@
 			body
 			{
 				background: url('<?php echo(PAGEBACKGROUND); ?>');
-				background-size: 100% 100%;
+				background-size: auto;
 				background-repeat: no-repeat;
 			}
 			iframe
@@ -99,7 +99,8 @@
 		//Here's the initial call to the infinite loop refresh function for the main content
 		//Just using a default of 10 seconds before the first refresh, just to make sure everything is ready and loaded
 		setTimeout(cycleMainContent, 10000);
-			
+		
+					
 		//Go get the main content from the database
 		function getMainContent()
 		{
