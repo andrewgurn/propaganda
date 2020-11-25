@@ -41,14 +41,21 @@
 				$content .= "
 					<div style='width: 500px; margin: 5px; display: inline-block; border: solid 1px; padding: 10px;'>
 						<img src='../images/iframe.jpg' style='width:100%;'>
-						<br />
-						<strong><a href='$contentLocation' target='_blank'>$contentLocation</a></strong>
-						<br />
-						Live from <strong>$dateStart</strong> through <strong>$dateEnd</strong>
-						<br />
-						Display Time: <strong>$displayTimeInSeconds seconds</strong>
-						<br />
-						Added by <strong>$addedBy</strong>
+						<p>
+							Location:
+							<br /><a href='$contentLocation' target='_blank'>$contentLocation</a>
+						</p>
+						<p>
+							Live from: 
+							<br /><strong>$dateStart</strong> 
+							<br />through 
+							<br /><strong>$dateEnd</strong>
+						</p>
+						<p>
+							Display Time: <strong>$displayTimeInSeconds seconds</strong>
+							<br />
+							Added by <strong>$addedBy</strong>
+						</p>
 				";
 			}
 			else if($contentType == 'image')
@@ -56,15 +63,20 @@
 				$contentLocation = "../$contentLocation";
 				
 				$content .= "
-					<div style='width: 500px; margin: 5px; display: inline-block; border: solid 1px; padding: 10px;'>
+					<div style='width: 500px; margin: 5px; display: inline-block; padding: 10px; background: #63585E;'>
 						<a href='$contentLocation' target='_blank'><img src='$contentLocation' style='width:100%;'></a>
-						<br />
-						<strong><a href='$contentLocation' target='_blank'>$contentLocation</a></strong>
-						<br />
-						Live from <strong>$dateStart</strong> through <strong>$dateEnd</strong>
-						<br />
-						Display Time: <strong>$displayTimeInSeconds seconds</strong>
-						<br />Added by <strong>$addedBy</strong>
+						<p>
+							Live from: 
+							<br />
+							<br /><strong>$dateStart</strong> 
+							<br />through 
+							<br /><strong>$dateEnd</strong>
+						</p>
+						<p>
+							Display Time: <strong>$displayTimeInSeconds seconds</strong>
+							<br />
+							Added by <strong>$addedBy</strong>
+						</p>
 
 				";
 			}
