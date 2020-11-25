@@ -14,7 +14,7 @@ I'm currently using this for the screens at my job.  Here's what it looks like i
 3. An OpenWeather API Key (free from openweathermap.org)
 
 # installation
-1. Download everything and stick it in your webroot (/var/www/html, c:/inetpub/wwwroot, etc)
+1. Copy everything in the /src directory to your webroot (/var/www/html, c:/inetpub/wwwroot, etc). 
 2. Run the SQL script (sql/propaganda.sql) to create the propaganda DB
 3. Adjust your webserver to require authentication to use stuff in the management folder.  For example, here's what I added to my apache2 config file so that my users can use their ActiveDirectory login via LDAP:
 
@@ -48,4 +48,5 @@ drwxr-xr-x  www-data www-data
 6. Edit propagandaConfig.php to customize the look and feel and get the weather working
 7. Configure your display devices (a Raspberry Pi, for exampe) to load propaganda/propaganda.php in Chrome (I haven't really tested it in other browsers)
 
-I think that ought to be it.
+# configuring a display device
+A Raspberry Pi works great for this.  I have included a script in /scripts that will launch propaganda for you in chromium.  I would recommend setting up your Pi to run this script automatically at login.
