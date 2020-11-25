@@ -15,7 +15,7 @@ I'm currently using this for the screens at my job.  Here's what it looks like i
 
 # installation
 1. Download everything and stick it in your webroot (/var/www/html, c:/inetpub/wwwroot, etc)
-2. Run the SQL script (doesn't exist yet) to create the propaganda DB
+2. Run the SQL script (sql/propaganda.sql) to create the propaganda DB
 3. Adjust your webserver to require authentication to use stuff in the management folder.  For example, here's what I added to my apache2 config file so that my users can use their ActiveDirectory login via LDAP:
 
 ```
@@ -38,8 +38,14 @@ I'm currently using this for the screens at my job.  Here's what it looks like i
 
 ```
 
-4. Adjust your webserver to allow people to upload files to the propagandaUploads directory (you may need to change some PHP settings and grant write access to propagandaUploads)
-5. Edit propagandaConfig.php to customize the look and feel and get the weather working
-6. Configure your display devices (a Raspberry Pi, for exampe) to load propaganda/propaganda.php in Chrome (I haven't really tested it in other browsers)
+4. Make sure your webserver allows file uploads.  Check you php.ini to see if file_uploads is on and upload_max_filesize is set to something reasonable.  
+5. Allow write access to the propagandaUploads folder.  For example, on my apache2 server, I had to change the owner of propagandaUploads to www-data, so that propagandaUploads now has these permissions:
+
+```
+drwxr-xr-x  www-data www-data
+```
+
+6. Edit propagandaConfig.php to customize the look and feel and get the weather working
+7. Configure your display devices (a Raspberry Pi, for exampe) to load propaganda/propaganda.php in Chrome (I haven't really tested it in other browsers)
 
 I think that ought to be it.
