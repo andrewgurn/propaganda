@@ -37,8 +37,12 @@
 	
 	//An array of users allowed to use the upload page
 	//Set your webserver up so that propagandaUploader.php requires authentication, whether it be some local user on the webserver, an LDAP user, and AD user, etc
-	//These usernames will be compared to what's in $_SERVER['remote_user'] after the user authenticates
+	//These usernames will be compared to what's in $_SERVER['REMOTE_USER'] after the user authenticates
 	//If you leave this as a blank array, it will be accessible to everybody who can access it
 	define("UPLOADERS", array());
+	
+	//An array of users allowed to manage other people's content
+	//Users and can only delete their own uploads, but anyone added to the array below will be allowed to delete anyone's content
+	define("MANAGERS", array());
 
 ?>
