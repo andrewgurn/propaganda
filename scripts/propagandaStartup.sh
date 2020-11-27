@@ -10,5 +10,5 @@ sleep 2;
 killall -9 chromium-browser 2>/dev/null;
 
 #Launch propaganda in chromium
-chromium-browser --kiosk --noerrdialogs --disable-translateb --ignore-certificate-errors --app=https://[your webserver address]/propaganda
+chromium-browser --kiosk --noerrdialogs --disable-translateb --ignore-certificate-errors --app=https://[your webserver address]/propaganda/propaganda.php
 
