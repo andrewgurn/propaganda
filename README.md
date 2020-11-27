@@ -4,7 +4,7 @@ propaganda is a not-very-complicated PHP and Javascript web app for informationa
 # why did I develop this?
 I was using the wonderful Concerto digital signage app to run informational screens at my job, but it was total overkill for our simple setup.  Also, I often ran into problems with getting the weather widget to work, getting videos to display, and getting the news ticker going, so I just ended up creating custom iFrames for those things.  I am also not a Ruby-on-Rails guy, so when Concerto had issues, I was often confused.  Finally, Concerto stopped working in updated browsers and I had extreme difficulty updating the stock Concerto VM image to get it going again.
 
-So I dumped it and built propaganda to take it's place.
+So I dumped it and built propaganda to take its place.
 
 # screenshot
 I'm currently using this for the screens at my job.  Here's what it looks like in action:
