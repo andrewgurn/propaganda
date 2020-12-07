@@ -108,7 +108,7 @@
 				</div>
 			</div>
 			<div>
-				<h1>Here's everything currently active:</h1>
+				<h1>Here's everything currently active (and the stuff scheduled for the future):</h1>
 				<div id="allContent">
 					
 				</div>
