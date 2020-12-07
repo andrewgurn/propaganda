@@ -17,7 +17,7 @@
 			,dateEnd
 			,addedBy
 		from propaganda
-		where NOW() between dateStart and dateEnd
+		where dateEnd >= NOW()
 			and isDeleted = 0
 		order by id desc
 
