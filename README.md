@@ -18,7 +18,7 @@ I'm currently using this for the screens at my job.  Here's what it looks like i
 
 # installation
 1. Copy everything in the /src directory to your webroot (/var/www/html, c:/inetpub/wwwroot, etc). 
-2. Run the SQL script (sql/propaganda.sql) to create the propaganda DB
+2. Run the SQL script (sql/propaganda.sql) to create the propaganda table.  propaganda is just one table, so feel free to create a seperate DB for it or just run it in an existing intranet DB.
 3. Adjust your webserver to require authentication to use stuff in the management folder.  For example, here's what I added to my apache2 config file so that my users can use their ActiveDirectory login via LDAP:
 
 ```
@@ -40,6 +40,8 @@ I'm currently using this for the screens at my job.  Here's what it looks like i
         </Directory>
 
 ```
+
+If your webserver is IIS, you can just set Windows permisssions directly on the propaganda management folder you copied to your webroot.
 
 4. Make sure your webserver allows file uploads.  Check you php.ini to see if file_uploads is on and upload_max_filesize is set to something reasonable.  
 5. Allow write access to the propagandaUploads folder.  For example, on my apache2 server, I had to change the owner of propagandaUploads to www-data, so that propagandaUploads now has these permissions:
