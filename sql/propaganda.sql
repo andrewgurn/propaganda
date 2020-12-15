@@ -19,7 +19,8 @@ CREATE TABLE propaganda (
   contentLocation varchar(500) NOT NULL,
   displayTime int(11) NOT NULL,
   addedBy varchar(255) NOT NULL,
-  isDeleted int(11) NOT NULL DEFAULT 0
+  isDeleted int(11) NOT NULL DEFAULT 0,
+  getVariables varchar(255) NOT NULL DEFAULT '',
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
