@@ -17,6 +17,7 @@
 			,contentType
 			,contentLocation
 			,displayTime
+			,getVariables
 		from propaganda
 		where NOW() between dateStart and dateEnd
 		$orderBy
@@ -29,14 +30,16 @@
 	{
 		$stmt->execute();    // Execute the prepared query.
 		$stmt->store_result();
-		$stmt->bind_result($id, $contentType, $contentLocation, $displayTime);
+		$stmt->bind_result($id, $contentType, $contentLocation, $displayTime, $getVariables);
 		$content = "";
 		
 		while($stmt->fetch())
 		{
+			
 			if($contentType == 'iframe')
 			{
-				$content .= "<div id='content-$id' class='propagandaContent $displayTime $classCurrent' style='$styleDisplay'><iframe id='$id' src='$contentLocation'></iframe></div>";
+				$iframeURL = $contentLocation.'?getVariables='.$getVariables;
+				$content .= "<div id='content-$id' class='propagandaContent $displayTime $classCurrent' style='$styleDisplay'><iframe id='$id' src='$iframeURL'></iframe></div>";
 			}
 			else if($contentType == 'image')
 			{
