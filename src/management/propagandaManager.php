@@ -5,8 +5,9 @@
 
 <html>
 	<head>
-		<title>Propaganda Manager</title>
+		<title>Propaganda Uploader</title>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" src="../js/ajax.js"></script>
 		<style>
 			body
 			{
@@ -108,7 +109,7 @@
 				</div>
 			</div>
 			<div>
-				<h1>Here's everything currently active (and the stuff scheduled for the future):</h1>
+				<h1>Here's everything currently active (and scheduled for the future):</h1>
 				<div id="allContent">
 					
 				</div>

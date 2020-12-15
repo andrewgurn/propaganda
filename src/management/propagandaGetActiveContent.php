@@ -16,6 +16,7 @@
 			,dateStart
 			,dateEnd
 			,addedBy
+			,getVariables
 		from propaganda
 		where dateEnd >= NOW()
 			and isDeleted = 0
@@ -27,7 +28,7 @@
 	{
 		$stmt->execute();    // Execute the prepared query.
 		$stmt->store_result();
-		$stmt->bind_result($id, $contentType, $contentLocation, $displayTime, $dateStart, $dateEnd, $addedBy);
+		$stmt->bind_result($id, $contentType, $contentLocation, $displayTime, $dateStart, $dateEnd, $addedBy, $getVariables);
 		$content = '';
 		$deleteHTML = '';
 		
@@ -44,6 +45,20 @@
 						<p>
 							Location:
 							<br /><a href='$contentLocation' target='_blank'>$contentLocation</a>
+						</p>
+						<p>
+							Variable(s): 
+							<input type='text' id='getVariables$id' value='$getVariables'>
+							<input type='button' id='updateGetVariables$id' value='Update'>
+							<div id='updateGetVariablesResultsDiv$id'></div>
+							<script>
+								$('#updateGetVariables$id').on('click', function(){
+									var contentID = '$id';
+									var getVariables = $('#getVariables$id').val();
+									var data = { 'contentID' : contentID , 'getVariables' : getVariables };
+									standardAjaxWrapper('text', 'POST', 'propagandaUpdateGetVariables.php', 'application/x-www-form-urlencoded', data, 'updateGetVariablesResultsDiv$id', 'updateGetVariablesResultsDiv$id', false, false, '');
+								});
+							</script>
 						</p>
 						<p>
 							Live from: 
