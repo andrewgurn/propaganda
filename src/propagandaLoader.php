@@ -20,6 +20,7 @@
 			,getVariables
 		from propaganda
 		where NOW() between dateStart and dateEnd
+			and isDeleted = 0
 		$orderBy
 	";  
 
