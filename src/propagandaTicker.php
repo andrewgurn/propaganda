@@ -152,6 +152,7 @@ animation: left-ten 60s ease infinite;
 	$ch = curl_init("https://www.newsmax.com/rss/Newsfront/16/");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
 	curl_setopt($ch, CURLOPT_CAINFO, 'cacert.pem');
 
 	$data = curl_exec($ch);
