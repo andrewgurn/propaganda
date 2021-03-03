@@ -94,7 +94,7 @@
 					<input type="text" id="displayTime" style="width: 10%;"> seconds
 				</div>
 				<div>
-					<input type="button" id="submit" value="Sumbit!">
+					<input type="button" id="submit" value="Submit!">
 				</div>
 				<div id="addResultDiv">
 				
