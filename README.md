@@ -56,8 +56,8 @@ drwxr-xr-x  www-data www-data
 # configuring a display device
 A Raspberry Pi works great for this.  I have included a script in /scripts that will launch propaganda for you in chromium.  I would recommend setting up your Pi to run this script automatically at login.  To do this on an LXDE-based pi, copy the propagandaStartup.sh script to your home directory (or wherever you want it) and then:
 
-        sudo nano /etc/xdg/lxsession/LXDE/autostart
+        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
  
-And then add:
+And then add this above the @xscreensaver line:
 
         @sh /home/pi/propagandaStartup.sh
