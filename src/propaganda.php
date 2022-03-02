@@ -10,7 +10,7 @@
 			body
 			{
 				background: url('<?php echo(PAGEBACKGROUND); ?>');
-				background-size: auto;
+				background-size: cover;
 				background-repeat: no-repeat;
 			}
 			iframe
