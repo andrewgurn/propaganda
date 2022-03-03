@@ -56,7 +56,7 @@ drwxr-xr-x  www-data www-data
 # configuring a display device
 A Raspberry Pi works great for this.  I have included a script in /scripts that will launch propaganda for you in chromium.  I would recommend setting up your Pi to run this script automatically at login.  
 
-To do this on an LXDE-based pi, copy the propagandaStartup.sh script to your home directory (or wherever you want it) and make it executable:
+To do this on an LXDE-based Pi, copy the propagandaStartup.sh script to your home directory (or wherever you want it) and make it executable:
         
         sudo chmod +x /home/pi/propagandaStartup.sh
 
@@ -67,3 +67,5 @@ Next:
 And then add this above the @xscreensaver line:
 
         @sh /home/pi/propagandaStartup.sh
+
+NOTE: If chromium launches with a blank screen, you need to disable hardware acceleration.  Goto Settings > Advanced > System and uncheck "Use hardware acceleration when available".
