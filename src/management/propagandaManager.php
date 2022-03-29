@@ -137,8 +137,8 @@
 				//after the user selects an image, this will upload it to the propaganda/propagandaUploads directory
 				$("#uploadedDocument").on("change", function(){
 
-					var formDataObject = new FormData();
-					var files = $('#uploadedDocument')[0].files;
+					let formDataObject = new FormData();
+					let files = $('#uploadedDocument')[0].files;
 
 					if(files.length > 0 )
 					{
@@ -178,12 +178,12 @@
 				//insert everything into the db	
 				$("#submit").on("click", function(){
 					
-					var contentType = $('#contentType').val();
-					var contentLocation = $('#contentLocation').val();
-					var dateStart = $('#dateStart').val();
-					var dateEnd = $('#dateEnd').val();
-					var displayTime = $('#displayTime').val();
-					var addedBy = $('#addedBy').val();
+					let contentType = $('#contentType').val();
+					let contentLocation = $('#contentLocation').val();
+					let dateStart = $('#dateStart').val();
+					let dateEnd = $('#dateEnd').val();
+					let displayTime = $('#displayTime').val();
+					let addedBy = $('#addedBy').val();
 					
 					$.ajax({
 					    dataType: 'text',
@@ -199,6 +199,11 @@
 						   $('#dateEnd').val("");	
 						   $('#displayTime').val("");
 						   $("#previewImage").attr('src', '../images/preview.jpg'); 
+						   $('#uploadedDocument').val('');
+						   $('#image').hide();
+						   $('#iframeLocation').val('');
+						   $('#iframe').val('').hide();
+						   $("#resultDiv").html('');
 						   allActiveContent();
 					    },
 					    error: function(xhr, textStatus, errorThrown) {
