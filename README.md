@@ -15,6 +15,7 @@ I'm currently using this for the screens at my job.  Here's what it looks like i
 1. A web server that runs PHP7 (it'll probably run on 5+ but I haven't tested it)
 2. MariaDB / MySQL
 3. An OpenWeather API Key (free from openweathermap.org)
+4. jQuery
 
 # installation
 1. Copy everything in the /src directory to your webroot (/var/www/html, c:/inetpub/wwwroot, etc). 
