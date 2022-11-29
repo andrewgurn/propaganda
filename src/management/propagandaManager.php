@@ -54,7 +54,7 @@
 		</style>
 	</head>
 	<body>
-		<?php if(in_array($user, UPLOADERS) || is_empty(UPLOADERS)) : ?>
+		<?php if(in_array($user, UPLOADERS) || empty(UPLOADERS)) : ?>
 		<div class='container'>
 		
 			<h1>Propaganda Uploader</h1>
