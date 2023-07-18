@@ -10,4 +10,4 @@ sleep 2;
 killall -9 chromium-browser 2>/dev/null;
 
 #Launch propaganda in chromium
-chromium-browser --kiosk --noerrdialogs --disable-translateb --ignore-certificate-errors --app=https://[your webserver address]/propaganda/propaganda.php?channeleID=[channel ID you want displayed]
+chromium-browser --kiosk --noerrdialogs --disable-translateb --ignore-certificate-errors --app=https://[your webserver address]/propaganda/propaganda.php?channelID=[channel ID you want displayed]
