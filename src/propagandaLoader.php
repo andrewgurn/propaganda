@@ -1,11 +1,14 @@
 <?php
 
 	require_once("propagandaConfig.php");
-	require_once("db.php");
+	require_once("includes/db.php");
 	
-	$dbObj = new Db();
-	$db = $dbObj->getMariaDbConnection();
+	$db = new db();
+	$conn = $db->getMariaDbConnection();
 	$orderBy = "";
+	
+	if(isset($_POST['channelID'])){ $channelID = $_POST['channelID']; }else{ $channelID = 1; }
+	
 	if(RANDOMIZEDCONTENT === true)
 	{
 		$orderBy = "order by rand()";
@@ -19,24 +22,24 @@
 			,displayTime
 			,getVariables
 		from propaganda
-		where NOW() between dateStart and dateEnd
+		where (channelID = 1 OR channelID = ?)
+			and NOW() between dateStart and dateEnd
 			and isDeleted = 0
 		$orderBy
 	";  
 
+	$paramsArray = ['i', $channelID];
+	$stmt = $db->parameterQuery($conn, $sql, $paramsArray);
 	$styleDisplay = '';
 	$classCurrent = 'current';
 
-	if ($stmt = $db->prepare($sql)) 
+	if (is_object($stmt)) 
 	{
-		$stmt->execute();    // Execute the prepared query.
-		$stmt->store_result();
 		$stmt->bind_result($id, $contentType, $contentLocation, $displayTime, $getVariables);
 		$content = "";
 		
 		while($stmt->fetch())
-		{
-			
+		{	
 			if($contentType == 'iframe')
 			{
 				$iframeURL = $contentLocation.'?getVariables='.$getVariables;
@@ -47,18 +50,16 @@
 				$content .= "<div id='content-$id' class='propagandaContent $displayTime $classCurrent' style='$styleDisplay'><img id='$id' src='$contentLocation'></div>";
 			}
 			
-			
 			//after one run through, set the display to none and the current class flag to blank.
 			$styleDisplay = 'display: none;';
 			$classCurrent = '';	
 		}
-		
+	
 		echo("$content");		
-
 	}
 	else
 	{
-		return "<div class='alertWarning'>Error preparing SQL in propagandaLoader.php: Does your display device have a network connection?</div>";
+		return "<div class='alertWarning'>Error: $stmt</div>";
 	}
 
 ?>
