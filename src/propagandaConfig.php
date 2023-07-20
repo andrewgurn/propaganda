@@ -1,5 +1,12 @@
 <?php
 
+/****************************
+	Database Settings
+****************************/
+	define("MARIADBSERVER", '[your server]');
+	define("MARIADBDATABASE", 'propaganda');
+	define("MARIADBUSER", '[your MariaDB CRUD user]');
+	define("MARIADBPWD", '[your MariaDB CRUD users password]');
 
 /****************************
 	Look and Feel
