@@ -1,5 +1,5 @@
 <?php
-	require_once("../db.php");
+	require_once("../includes/db.php");
 
 	$dateStart =$_POST['dateStart'];
 	$dateEnd = $_POST['dateEnd'];
@@ -7,12 +7,15 @@
 	$contentLocation = $_POST['contentLocation'];
 	$displayTime = ($_POST['displayTime'])*1000;
 	$addedBy = $_POST['addedBy'];
+	$channelID = $_POST['channelID'];
 	
-	$dbObj = new Db();
-	$db = $dbObj->getMariaDbConnection();
+	$paramsArray = ['ssssisi', $dateStart, $dateEnd, $contentType, $contentLocation, $displayTime, $addedBy, $channelID ];
+	
+	$db = new db();
+	$conn = $db->getMariaDbConnection();
 	$sql="
 		insert into propaganda
-		(dateStart, dateEnd, contentType, contentLocation, displayTime, addedBy)
+		(dateStart, dateEnd, contentType, contentLocation, displayTime, addedBy, channelID)
 		values 
 		(
 			?
@@ -21,27 +24,11 @@
 			,?
 			,?
 			,?
+			,?
 		)
 	
 	";  
-
-	if ($stmt = $db->prepare($sql)) 
-	{
-		$stmt->bind_param('ssssis', $dateStart, $dateEnd, $contentType, $contentLocation, $displayTime, $addedBy);
-		if($stmt->execute())
-		{
-			echo("<div class='alertSuccess'>Propaganda successfully added!!</div>");
-		}
-		else 
-		{
-			echo('<div class="alertWarning">ERROR: SQL execution error in propagandaAdd.php</div>');
-		}
-	} 
-	else 
-	{
-  		echo('<div class="alertWarning">ERROR: SQL prepare error in propagandaAdd.php</div>');
-	}
-
-	$db->close();
+	
+	$stmt = $db->parameterQuery($conn, $sql, $paramsArray);
 
 ?>
