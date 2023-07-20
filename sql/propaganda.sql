@@ -45,8 +45,11 @@ CREATE TABLE propagandaChannel (
 ALTER TABLE propagandaChannel
   ADD PRIMARY KEY (id);
 
+INSERT INTO propagandaChannel (id, channelName, addedBy, addedDate, isDisabled, disabledBy, disabledDate) VALUES
+(1, 'All Channels', 'default', '2023-07-17 09:18:49', 0, '', '0000-00-00 00:00:00'),
+
 ALTER TABLE propagandaChannel
-  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
