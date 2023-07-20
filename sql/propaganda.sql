@@ -21,8 +21,8 @@ CREATE TABLE propaganda (
   addedBy varchar(255) NOT NULL,
   isDeleted int(11) NOT NULL DEFAULT 0,
   getVariables varchar(255) NOT NULL DEFAULT '',
+  channelID int(11) NOT NULL DEFAULT 1,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 ALTER TABLE propaganda
   ADD PRIMARY KEY (id);
@@ -30,6 +30,23 @@ ALTER TABLE propaganda
 ALTER TABLE propaganda
   MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 SET FOREIGN_KEY_CHECKS=1;
+COMMIT;
+
+CREATE TABLE propagandaChannel (
+  id int(11) NOT NULL,
+  channelName varchar(50) NOT NULL,
+  addedBy varchar(50) NOT NULL,
+  addedDate datetime NOT NULL,
+  isDisabled int(11) NOT NULL DEFAULT 0,
+  disabledBy varchar(50) NOT NULL,
+  disabledDate datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE propagandaChannel
+  ADD PRIMARY KEY (id);
+
+ALTER TABLE propagandaChannel
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
