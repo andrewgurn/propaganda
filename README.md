@@ -69,4 +69,4 @@ And then add this above the @xscreensaver line:
 
         @sh /home/pi/propagandaStartup.sh
 
-NOTE: If chromium launches with a blank screen, you need to disable hardware acceleration.  Goto Settings > Advanced > System and uncheck "Use hardware acceleration when available".
+NOTE: If Chromium launches with a blank screen, you need to disable hardware acceleration.  Goto Settings > Advanced > System and uncheck "Use hardware acceleration when available".
