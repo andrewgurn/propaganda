@@ -51,7 +51,7 @@ If your webserver is IIS, you can just set Windows permisssions directly on the 
 drwxr-xr-x  www-data www-data
 ```
 
-6. Edit propagandaConfig.php to customize the look and feel and get the weather working
+6. Edit propagandaConfig.php to setup your MariaDB connection stuff setup, customize the look and feel, and get the weather working
 7. Configure your display devices (a Raspberry Pi, for exampe) to load propaganda/propaganda.php in Chrome (I haven't really tested it in other browsers)
 
 # configuring a display device
