@@ -1,8 +1,9 @@
 <?php
+require_once('../propagandaConfig.php');
 
 class db
 {
-	function getMariaDbConnection($serverName="[your server]", $dbName="[propaganda]", $userName="[a MariaDB user with CRUD permissions]", $password="[password for that user]")
+	function getMariaDbConnection($serverName=MARIADBSERVER, $dbName=MARIADBDATABASE, $userName=MARIADBUSER, $password=MARIADBPWD)
 	{
 		$conn = new mysqli($serverName, $userName, $password, $dbName);
 		
