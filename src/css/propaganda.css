@@ -1,0 +1,102 @@
+body
+{
+	background: url('../lancaster.jpg');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+iframe
+{
+	overflow: hidden;
+	display: block;
+	border: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.weather
+{
+	position: absolute;
+	left: 2%;
+	top: 2%;
+	width: 12%;
+	height: 96%;
+}
+
+.ticker
+{
+	position: absolute;
+	left: 15%;
+	top: 86%;
+	width: 83%;
+	height: 12%;
+}
+
+.main
+{
+	position: absolute;
+	left: 15%;
+	top: 2%;
+	width: 83%;
+	height: 83%;
+	text-align: center;
+}
+
+.main img
+{
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	vertical-align: middle;
+	
+}
+
+.managerBody
+{
+	font-family: Verdana, Geneva, sans-serif;
+	background: #63585E;
+}
+
+.container
+{
+	background: #8AA29E;
+	color: #FAFAFA;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	text-align: center;
+}
+
+.left
+{
+	display: inline-block;
+	width: 25%;
+	left: 5%;
+	vertical-align: top;
+	text-align: left;
+}
+
+.right
+{
+	display: inline-block;
+	width: 65%;
+	right: 5%;
+}
+
+.imagePreviewDiv img
+{
+	width: 75%;
+}
+
+.formDiv div
+{
+	padding: 10px;
+}
+.contentDiv
+{
+	width: 500px; 
+	margin: 5px; 
+	display: inline-block; 
+	background: #63585E;
+	padding: 10px;
+}
