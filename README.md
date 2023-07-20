@@ -12,7 +12,7 @@ I'm currently using this for the screens at my job.  Here's what it looks like i
 ![screenshot](https://user-images.githubusercontent.com/61878195/99812587-a3a87a80-2b14-11eb-852b-6098c1688f03.jpg)
 
 # requirements
-1. A web server that runs PHP7 (it'll probably run on 5+ but I haven't tested it)
+1. A web server that runs PHP7+ (it'll probably run on 5+ but I haven't tested it)
 2. MariaDB / MySQL
 3. An OpenWeather API Key (free from openweathermap.org)
 4. jQuery
