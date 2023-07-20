@@ -1,11 +1,11 @@
 <?php
-	require_once("../db.php");
+	require_once("../includes/db.php");
 
 	$user = $_SERVER['REMOTE_USER'];
 	$contentID = $_POST['contentID'];
 	
-	$dbObj = new Db();
-	$db = $dbObj->getMariaDbConnection();
+	$db = new db();
+	$conn = $db->getMariaDbConnection();
 	$sql="
 		update propaganda
 		set isDeleted = 1
@@ -14,25 +14,16 @@
 	
 	";  
 
-	if ($stmt = $db->prepare($sql)) 
+	$paramsArray = ['is', $contentID, $user];
+	$stmt = $db->parameterQuery($conn, $sql, $paramsArray);
+
+	if(is_object($stmt))
 	{
-		$stmt->bind_param('is', $contentID, $user);
-		if($stmt->execute())
-		{
-			echo("<div class='alertSuccess'>Propaganda successfully deleted!!</div>");
-		}
-		else 
-		{
-			echo('<div class="alertWarning">ERROR: SQL execution error in propagandaDeleteContent.php</div>');
-		}
-	} 
-	else 
-	{
-  		echo('<div class="alertWarning">ERROR: SQL prepare error in propagandaDeleteContent.php</div>');
+		echo("<div class='alertSuccess'>Propaganda successfully deleted!!</div>");
 	}
-
-	$db->close();
-
-?>
-
+	else
+	{
+		echo("<div class='alertWarning'><strong>ERROR:</strong> $stmt</div>");
+	}	
+		
 ?>
