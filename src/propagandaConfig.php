@@ -15,7 +15,7 @@
 	OpenWeather API key
 *****************************/	
 	//To get one of these, goto openweathermap.org and sign up.  It's free, so long as you don't make more than 60 calls per minute!
-	define("OPENWEATHERAPIKEY", "your-key-goes-here");
+	define("OPENWEATHERAPIKEY", "[your-key-goes-here]");
 
 /****************************
 	Content Settings
