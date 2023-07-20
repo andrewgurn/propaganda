@@ -19,7 +19,7 @@ I'm currently using this for the screens at my job.  Here's what it looks like i
 
 # installation
 1. Copy everything in the /src directory to your webroot (/var/www/html, c:/inetpub/wwwroot, etc). 
-2. Run the SQL script (sql/propaganda.sql) to create the propaganda table.  propaganda is just one table, so feel free to create a seperate DB for it or just run it in an existing intranet DB.
+2. Run the SQL script (sql/propaganda.sql) to create the propaganda DB and tables.
 3. Adjust your webserver to require authentication to use stuff in the management folder.  For example, here's what I added to my apache2 config file so that my users can use their ActiveDirectory login via LDAP:
 
 ```
