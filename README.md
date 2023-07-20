@@ -52,7 +52,7 @@ drwxr-xr-x  www-data www-data
 ```
 
 6. Edit propagandaConfig.php to setup your MariaDB connection stuff, customize the look and feel, and get the weather working
-7. Configure your display devices (a Raspberry Pi, for exampe) to load propaganda/propaganda.php in Chrome (I haven't really tested it in other browsers)
+7. Configure your display devices (a Raspberry Pi, for exampe) to load propaganda/propaganda.php in Chromium (I haven't really tested it in other browsers)
 
 # configuring a display device
 A Raspberry Pi works great for this.  I have included a script in /scripts that will launch propaganda for you in chromium.  I would recommend setting up your Pi to run this script automatically at login.  
