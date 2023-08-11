@@ -55,7 +55,7 @@ drwxr-xr-x  www-data www-data
 7. Configure your display devices (a Raspberry Pi, for exampe) to load propaganda/propaganda.php in Chromium (I haven't really tested it in other browsers)
 
 # configuring a display device
-A Raspberry Pi works great for this.  I have included a script in /scripts that will launch propaganda for you in Chromium.  I would recommend setting up your Pi to run this script automatically at login.  
+A Raspberry Pi works great for this, but any PC that can run Chromium would work (or any web browser, but my setup script assumes a Chrome-based browser).  I have included a script in /scripts that will launch propaganda for you in Chromium.  I would recommend setting up your Pi to run this script automatically at login.  
 
 To do this on an LXDE-based Pi, copy the propagandaStartup.sh script to your home directory (or wherever you want it) and make it executable:
         
