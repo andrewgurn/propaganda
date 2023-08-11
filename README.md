@@ -1,7 +1,7 @@
 # propaganda
 propaganda is a not-very-complicated PHP and Javascript web app for informational display screens
 
-#v0.9 ToDo list
+# v0.9 ToDo list
 -There is no interface for adding a new Channel at the moment.  It'll take me like 5 minutes to do, and yet I have yet to do it.  In the meantime, new Channels will need to be added directly through the DB
 
 # why did I develop this?
