@@ -75,7 +75,7 @@ And then add this above the @xscreensaver line:
 
 NOTE: If Chromium launches with a blank screen, you need to disable hardware acceleration.  Goto Settings > Advanced > System and uncheck "Use hardware acceleration when available".
 
-#more pi stuff
+# more pi stuff
 It's a good idea to install unclutter to hide the mouse cursor (X11 only; not sure what the Wayland alternative would be if there is one):
 
         sudo apt install unclutter
