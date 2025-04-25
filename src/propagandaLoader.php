@@ -2,16 +2,50 @@
 
 	require_once("propagandaConfig.php");
 	require_once("includes/db.php");
-	
+
 	$db = new db();
 	$conn = $db->getMariaDbConnection();
 	$orderBy = "";
+	$paramString = "";
+	$paramsArray = [];
 	
-	if(isset($_POST['channelID'])){ $channelID = $_POST['channelID']; }else{ $channelID = 1; }
+	if(isset($_POST['channelID']))
+	{
+		//Channel ID comes in as 0 if not set via get variables
+		//Channel ID must be an integer
+		if($_POST['channelID'] != 0 && intval($_POST['channelID']))
+		{ 
+			$channelID = $_POST['channelID']; 
+		}
+		else
+		{
+			$channelID = DEFAULTCHANNELID; 
+		}	
+	}
+	else
+	{ 
+		$channelID = DEFAULTCHANNELID; 
+	}
+	
+	if(isset($_POST['excludeAll'])){ $excludeAll = intval($_POST['excludeAll']); }else{ $excludeAll = 0; }
 	
 	if(RANDOMIZEDCONTENT === true)
 	{
 		$orderBy = "order by rand()";
+	}
+	
+	if($excludeAll === 1)
+	{
+		$whereClause = "where channelID = ?";
+		$paramString .= "i";
+		$paramsArray[] = $channelID;
+	}
+	else
+	{
+		$whereClause = "where (channelID = ? OR channelID = ?)";
+		$paramString .= "ii";
+		$paramsArray[] = DISPLAYONALLCHANNELSCHANNELID;
+		$paramsArray[] = $channelID;
 	}
 	
 	$sql="
@@ -22,13 +56,13 @@
 			,displayTime
 			,getVariables
 		from propaganda
-		where (channelID = 1 OR channelID = ?)
+		$whereClause
 			and NOW() between dateStart and dateEnd
 			and isDeleted = 0
 		$orderBy
 	";  
 
-	$paramsArray = ['i', $channelID];
+	array_unshift($paramsArray, $paramString);
 	$stmt = $db->parameterQuery($conn, $sql, $paramsArray);
 	$styleDisplay = '';
 	$classCurrent = 'current';
