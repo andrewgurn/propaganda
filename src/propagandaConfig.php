@@ -36,6 +36,10 @@
 	define("TICKERREFRESH", 900000);
 	//How often should we look in the DB for new content? (ms)
 	define("MAINCONTENTREFRESH", 900000);
+	//Set a Default Channel ID to use if none is passed in
+	define("DEFAULTCHANNELID", 1);
+	//Set a Channel ID as the "Display On All Channels" Channel (this Channel's content will display regardless of the Channel ID passed in unless excludeAll is also sent and set to 1)
+	define("DISPLAYONALLCHANNELSCHANNELID", 1);
 
 
 /****************************
