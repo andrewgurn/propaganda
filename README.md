@@ -87,4 +87,4 @@ I also use unattended-upgrades because I'd rather things be up-to-date and have 
 
 Finally, I add the line below to the root crontab to reboot the pi at midnight:
 
-        * 0 * * * /usr/sbin/reboot
+        0 0 * * * /usr/sbin/reboot
