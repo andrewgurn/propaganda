@@ -1,3 +1,5 @@
+#This is the script I use on our Raspberry Pi devices running LXDE and Chromium.  It may or may not work right out of the box on whatever you're running.
+
 #Disable DPMS.
 xset -dpms
 xset s off
