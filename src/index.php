@@ -1,3 +1,4 @@
+<?php require_once("propagandaConfig.php"); ?>
 <html>
 	<head>
 		<title>Propaganda Screen</title>
@@ -5,7 +6,7 @@
 		<script type="text/javascript" src="../js/ajax.js"></script>
 		<link rel="stylesheet" href="css/propaganda.css">
 	</head>
-	<body>
+	<body style="background: url('<?php echo(PAGEBACKGROUND); ?>');">
 		<div class="weather">
 			<iframe id="weather" frameborder="0" src="weather.php"></iframe>
 		</div>
@@ -21,15 +22,23 @@
 		const queryString = window.location.search;
 		const urlParams = new URLSearchParams(queryString);
 		var channelID;
+		
 		if(urlParams.has('channelID'))
 		{
 			channelID = urlParams.get('channelID');
 		}
 		else
 		{
-			channelID = 1;
+			channelID = 0;
+		}
+		if(urlParams.has('excludeAll'))
+		{
+			excludeAll = urlParams.get('excludeAll');
+		}
+		else
+		{
+			excludeAll = 0;
 		}	
-		var contentDisplayTime = 10000;
 				
 		$(document).ready(function() {
 			getMainContent();
@@ -50,6 +59,11 @@
 			getMainContent();
 		}, 900000);
 		
+		//reload the entire page every 6 hours (21600000 miliseconds)
+		setInterval(function(){
+			window.location.reload(); 
+		}, 21600000);
+		
 		//Here's the initial call to the infinite loop refresh function for the main content
 		//Just using a default of 10 seconds before the first refresh, just to make sure everything is ready and loaded
 		setTimeout(cycleMainContent, 10000);
@@ -57,25 +71,29 @@
 		//Go get the main content from the database
 		function getMainContent()
 		{
-			let data =  {'channelID' : channelID }
+			let data =  {'channelID' : channelID , 'excludeAll' : excludeAll }
 			standardAjaxWrapper('text', 'POST', 'propagandaLoader.php', 'application/x-www-form-urlencoded', data, 'main', 'main', true, false, '');
 		}
 		
 		//Cycle through the main content
 		function cycleMainContent()
 		{
+			let contentDisplayTime = 10000;
 			$('.main').each(function(){
 				
 				//find the item currently being displayed and fade it out  
 				//I'm keeping track of this by sticking "current" in the class attribute of its container div
-				var $cur = $(this).find('.current').removeClass('current').fadeOut();
+				let $cur = $(this).find('.current').removeClass('current').fadeOut();
 				
 				//find the item to display next.  If we're on the last item, we'll go back to the first one.
-				var $next = $cur.next().length?$cur.next():$(this).children().eq(0);
+				let $next = $cur.next().length?$cur.next():$(this).children().eq(0);
 				
 				//the time to display each item is stored on the class attribute of its container div
 				//to retrieve it, I'm just stripping out everything that isn't a number
 				contentDisplayTime = $next.attr("class").replace(/\D/g,'');
+				
+				//debug
+				$('#debugTimeToDisplay').html('Cur Disp Time: ' + contentDisplayTime + 'ms');
 				
 				//if the next element to show is an iframe, refresh it.  No need to refresh images
 				if($next.prop('nodeName') == 'iframe')
@@ -86,12 +104,10 @@
 				//make the next item current and fade it in
 				$next.addClass('current').delay(1000).fadeIn();
 			});	
-			
 			//since we're cycling through in perpituity, we'll call ourself again here after waiting for the display time value we grabbed earlier
 			setTimeout(cycleMainContent, contentDisplayTime);	
 		}
 		
-	
 	</script>
 	
 </html>
