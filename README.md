@@ -74,3 +74,17 @@ And then add this above the @xscreensaver line:
         @sh /home/pi/propagandaStartup.sh
 
 NOTE: If Chromium launches with a blank screen, you need to disable hardware acceleration.  Goto Settings > Advanced > System and uncheck "Use hardware acceleration when available".
+
+#more pi stuff
+It's a good idea to install unclutter to hide the mouse cursor (X11 only; not sure what the Wayland alternative would be if there is one):
+
+        sudo apt install unclutter
+
+I also use unattended-upgrades because I'd rather things be up-to-date and have a slim possibilty to dying on an update than very-out-of-date:
+
+        sudo apt install unattended-upgrades
+        dpkg-reconfigure --priority=low unattended-upgrades
+
+Finally, I add the line below to the root crontab to reboot the pi at midnight:
+
+        * 0 * * * /usr/sbin/reboot
